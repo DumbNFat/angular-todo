@@ -1,0 +1,28 @@
+.divContent {
+    display: grid;
+    grid-template-columns: 12% 1fr 12%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.divTitle {
+    margin: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    grid-column: 1/4;
+    background-color: rgb(40, 40, 40);
+    text-align: center;
+    color: white;
+    height: 100%;
+}
+
+.divMain {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    grid-column: 2/3;
+    text-align: center;
+    padding: 8px;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}

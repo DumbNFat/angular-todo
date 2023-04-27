@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tododb-7d206"
+  },
+  "targets": {
+    "tododb-7d206": {
+      "hosting": {
+        "angular-todo": [
+          "tododb-7d206"
+        ]
+      }
+    }
+  }
+}

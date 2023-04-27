@@ -1,0 +1,16 @@
+.mainFormDiv {
+    grid-template-columns: 25% 50% 25%;
+    display: grid;
+    margin-bottom: 70px;
+    margin-top: 30px;
+}
+
+form {
+    margin-top: 15px;
+    grid-column: 2/3;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}

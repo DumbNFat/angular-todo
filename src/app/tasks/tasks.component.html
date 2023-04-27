@@ -1,0 +1,94 @@
+<div class="mainDiv">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidenav">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <span class="fs-4">OPTIONS</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a (click)="orderTime()" class="nav-link link-dark navbtn">
+                ORDER BY TIME
+            </a>
+            </li>
+            <li class="nav-item">
+                <a (click)="orderCategory()" class="nav-link link-dark navbtn">
+                ORDER BY CATEGORY
+            </a>
+            </li>
+            <li>
+                <a (click)="orderEmergency()" class="nav-link link-dark navbtn">
+                ORDER BY EMERGENCY STATUS
+            </a>
+            </li>
+
+            <li>
+                <a (click)="orderRepeating()" class="nav-link link-dark navbtn">
+                ORDER BY REPEATING STATUS
+            </a>
+            </li>
+            <li>
+                <a (click)="orderPriority()" class="nav-link link-dark navbtn">
+                ORDER BY PRIORITY STATUS
+            </a>
+            </li>
+            <li>
+                <div class="form-group nav-link link-dark">
+                    <label for="filterInput">FILTER DESCRIPTION:</label>
+                    <input #filterDesc name="filterInput" id="filterInput" (keyup)="filter(filterDesc.value)" type="text">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="labels">
+        <div class="one">
+            <p>Description</p>
+        </div>
+        <div class="two">
+            <p>Category</p>
+        </div>
+        <div class="three">
+            <p>Finish By</p>
+        </div>
+        <div class="four">
+            <p>Finished</p>
+        </div>
+        <div class="five">
+            <p>Emergency</p>
+        </div>
+        <div class="six">
+            <p>Repeating</p>
+        </div>
+        <div class="seven">
+            <p>Priority</p>
+        </div>
+    </div>
+    <div class="todo" *ngFor="let todo of todoFilter | paginate: {itemsPerPage: 4, currentPage: page}" (click)="navigate(todo.id)">
+        <div class="one">
+            <p>{{todo.description}}</p>
+        </div>
+        <div class="two">
+            <p>{{todo.category | header}}</p>
+        </div>
+        <div class="three">
+            <p>{{todo.time}}</p>
+        </div>
+        <div class="four">
+            <p>{{todo.finished | header}}</p>
+        </div>
+        <div class="five" *ngIf="todo.emergency == 'no'">
+            <p>{{todo.emergency | header}}</p>
+        </div>
+        <div class="fiveRed" *ngIf="todo.emergency == 'yes'">
+            <p>{{todo.emergency | header}}</p>
+        </div>
+        <div class="six">
+            <p>{{todo.repeating | header}}</p>
+        </div>
+        <div class="seven">
+            <p>{{todo.priority | header}}</p>
+        </div>
+    </div>
+    <div class="has-text-centered paginator">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
